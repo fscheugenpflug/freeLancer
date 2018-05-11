@@ -1,0 +1,30 @@
+page-signup {
+  .auth-form {
+    margin: 0 5vw;
+  }
+
+  ion-row{
+    justify-content: center;
+    align-items: center;
+  }
+  // .btn-wrapper{
+  //   display: flex;
+  //   justify-content: space-around;
+  //   // margin: 8vh;
+  //   margin-top: 10vh;
+  // }
+
+ .btn-signup {
+  //  display: inline-block;
+   margin: 0 auto;
+   width: 35vw;
+ }
+
+ .btn-submit {
+   width: 90vw;
+   display: flex;
+   justify-content: center;
+   margin: 0 auto;
+   margin-top: 5vh;
+ }
+}

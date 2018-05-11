@@ -1,0 +1,17 @@
+<ion-list>
+
+  <ion-item>
+    <ion-label stacked>E-Mail</ion-label>
+    <ion-input type="email" name="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Password</ion-label>
+    <ion-input type="password" name="password"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+<button ion-button block (click)="login()" class="btn-submit">login</button>
+
+<p>Not a member? <button ion-button color="primary" clear (click)="signup()">Signup here!</button></p>
