@@ -1,9 +1,21 @@
 page-login {
+  .spacer {
+    height: 20vh;
+  }
    .btn-submit {
    width: 90vw;
    display: flex;
    justify-content: center;
    margin: 0 auto;
    margin-top: 5vh;
+ }
+ ion-list {
+   margin-top: 15vh;
+ }
+  .validation {
+   color: #AA0114;
+ }
+  .text-center{
+   text-align: center;
  }
 }

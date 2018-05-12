@@ -1,17 +1,36 @@
-<ion-list>
+<ion-content padding>
+  <ion-item class="spacer"></ion-item>
+  <form (submit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+    <ion-list>
 
-  <ion-item>
-    <ion-label stacked>E-Mail</ion-label>
-    <ion-input type="email" name="email"></ion-input>
-  </ion-item>
+      <ion-item [ngClass]="{'has-error': feedbackEnabled && emailField.errors}">
+        <ion-label stacked>E-Mail</ion-label>
+        <ion-input type="email" name="email" [(ngModel)]="email" #emailField="ngModel" required [disabled]="processing"></ion-input>
+        <ion-label *ngIf="feedbackEnabled && emailField.errors">
+          <p *ngIf="emailField.errors.required" class="validation">email required</p>
+        </ion-label>
+      </ion-item>
 
-  <ion-item>
-    <ion-label stacked>Password</ion-label>
-    <ion-input type="password" name="password"></ion-input>
-  </ion-item>
+      <ion-item [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="3" [disabled]="processing"></ion-input>
+        <ion-label *ngIf="feedbackEnabled && passwordField.errors">
+          <p *ngIf="passwordField.errors.required" class="validation">Password required</p>
+          <p *ngIf="passwordField.errors.minlength" class="validation">Password is too short</p>
+          <p *ngIf="passwordIncorrect" class="validation">Password incorrect</p>
+        </ion-label>
+      </ion-item>
 
-</ion-list>
+    </ion-list>
 
-<button ion-button block (click)="login()" class="btn-submit">login</button>
+    <div *ngIf="error">
+      <p class="validation">Email or password incorrect</p>
+    </div>
+    <div *ngIf="feedbackEnabled && form.invalid">
+      <p class="validation text-center">there are errors in the form, please review the fields</p>
+    </div>
+    <button ion-button block type="submit" class="btn-submit" [disabled]="processing">login</button>
+  </form>
 
-<p>Not a member? <button ion-button color="primary" clear (click)="signup()">Signup here!</button></p>
+  <p class="text-center">Not a member? <a color="primary" clear (click)="signup()">Signup here!</a></p>
+</ion-content>

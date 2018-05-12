@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 // import { CategoriesPage } from '../../categories/categories';
 import { SetupProfessionalPage } from '../../setup-professional/setup-professional';
 import { LoginPage } from '../login/login';
-import { TabsPage } from '../../tabs/tabs';
 import { AuthServiceProvider } from '../../../providers/auth-service/auth-service';
+import { CategoriesPage } from '../../categories/categories';
 
 
 
@@ -22,25 +22,43 @@ import { AuthServiceProvider } from '../../../providers/auth-service/auth-servic
 })
 export class SignupPage {
   statusProfessional: boolean;
+  error = null;
+  feedbackEnabled = false;
+  passwordEqual: Boolean;
+  processing = false;
+  role: String;
+  name: string;
+  surname: string;
+  email: string;
+  address: string;
+  telephone: number;
+  profession: Array<any>;
+  password: string;
+  passwordRepeat: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider) {}
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider) {
+
+  }
     
-    error = null;
-    feedbackEnabled = false;
-    processing = false;
-    role: String;
-    name: string;
-    surname: string;
-    email: string;
-    address: string;
-    telephone: number;
-    profession: Array<any>;
+  handleKeyup() {
+    console.log('ok');
+    if (this.password !== this.passwordRepeat) {
+      this.passwordEqual = false;
+    } else {
+      this.passwordEqual = true;
+    }
+  }
 
 
-    password: string;
-
-  ionViewDidLoad() {}
-// -- Set UsrRole
+  
+  ionViewDidLoad() {
+    // if(this.password === this.passwordRepeat) {
+    //   this.passwordEqual = true;
+    // } else {
+    //   this.passwordEqual = false;
+    // }
+  };
   setRoleToProfessional(click) {
     this.statusProfessional = true;
   }
@@ -73,7 +91,7 @@ export class SignupPage {
           if (this.statusProfessional) {
             this.navCtrl.push(SetupProfessionalPage);
           } else {
-            this.navCtrl.push(TabsPage);
+            this.navCtrl.push(CategoriesPage);
           }
         })
         .catch((err) => {

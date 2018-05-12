@@ -1,56 +1,79 @@
-<h1>Sign Up</h1>
-<div class="btn-wrapper">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <button ion-button class="btn-signup" (click)="setRoleToCustomer()">Customer</button>
-      </ion-col>
-      <ion-col>
-        <button ion-button class="btn-signup" (click)="setRoleToProfessional()">Professional</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</div>
-<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-<ion-list class="auth-form">
-    <ion-item>
-      <ion-label stacked>Name</ion-label>
-      <ion-input type="text" name="name" [(ngModel)]="name" #nameField="ngModel"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label stacked>Surname</ion-label>
-      <ion-input type="text" name="surname" [(ngModel)]="surname" #surnameField="ngModel"></ion-input>
-    </ion-item>
-    <ion-item *ngIf="statusProfessional">
-      <ion-label stacked>Profession</ion-label>
-      <ion-select [(ngModel)]="profession" multiple="true" name="profession" #professionField="ngModel">
-        <ion-option>Web Devloper</ion-option>
-        <ion-option>Chef</ion-option>
-        <ion-option>Plumber</ion-option>
-        <ion-option>Carpenter</ion-option>
-        <ion-option>Hairdresser</ion-option>
-        <ion-option>Masseuse</ion-option>
-      </ion-select>
-    </ion-item>
-    <ion-item *ngIf="statusProfessional">
-      <ion-label stacked>Telephone</ion-label>
-      <ion-input type="text" name="telephone" [(ngModel)]="telephone" #telephoneField="ngModel"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label stacked>E-Mail</ion-label>
-      <ion-input type="email" name="email" [(ngModel)]="email" #emailField="ngModel"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label stacked>Password repeat</ion-label>
-      <ion-input type="password" name="password"></ion-input>
-    </ion-item> 
-  </ion-list>
-  <button type="submit" ion-button block class="btn-submit">Signup</button>
-</form>
+<ion-content padding>
+  <div class="btn-wrapper">
+    <ion-grid class="btn-wrapper">
+      <ion-row>
+        <ion-col>
+          <button ion-button class="btn-signup" (click)="setRoleToCustomer()">Customer</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button class="btn-signup" (click)="setRoleToProfessional()">Professional</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+  <ion-list class="auth-form">
+      <ion-item>
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="text" name="name" [(ngModel)]="name" #nameField="ngModel" required [disabled]="processing"></ion-input>
+        <ion-label *ngIf="feedbackEnabled && nameField.errors">
+          <p *ngIf="nameField.errors.required" class="validation">Name required</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Surname</ion-label>
+        <ion-input type="text" name="surname" [(ngModel)]="surname" #surnameField="ngModel" required [disabled]="processing"></ion-input>
+        <ion-label *ngIf="feedbackEnabled && surnameField.errors">
+          <p *ngIf="surnameField.errors.required" class="validation">Surname required</p>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngIf="statusProfessional">
+        <ion-label stacked>Profession</ion-label>
+        <ion-select [(ngModel)]="profession" multiple="true" name="profession" #professionField="ngModel" required [disabled]="processing">
+          <ion-option>Web Devloper</ion-option>
+          <ion-option>Chef</ion-option>
+          <ion-option>Plumber</ion-option>
+          <ion-option>Carpenter</ion-option>
+          <ion-option>Hairdresser</ion-option>
+          <ion-option>Masseuse</ion-option>
+        </ion-select>
+        <ion-label *ngIf="feedbackEnabled && professionField.errors">
+          <p *ngIf="professionField.errors.required" class="validation">Profession required</p>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngIf="statusProfessional">
+        <ion-label stacked>Telephone</ion-label>
+        <ion-input type="text" name="telephone" [(ngModel)]="telephone" #telephoneField="ngModel" required [disabled]="processing"></ion-input>
+        <ion-label *ngIf="feedbackEnabled && telephoneField.errors">
+          <p *ngIf="telephoneField.errors.required" class="validation">Phonenumber required</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>E-Mail</ion-label>
+        <ion-input type="email" name="email" [(ngModel)]="email" #emailField="ngModel" required [disabled]="processing"></ion-input>
+        <ion-label *ngIf="feedbackEnabled && emailField.errors">
+          <p *ngIf="emailField.errors.required" class="validation">email required</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="3" [disabled]="processing"></ion-input>
+        <ion-label *ngIf="feedbackEnabled && passwordField.errors">
+          <p *ngIf="passwordField.errors.required" class="validation">password required</p>
+          <p *ngIf="passwordField.errors.minlength" class="validation">password is too short</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Password repeat</ion-label>
+        <ion-input type="password" name="passwordRepeat" (keyup)="handleKeyup()" [(ngModel)]="passwordRepeat" #passwordRepeatField="ngModel" required minlength="3" [disabled]="processing"></ion-input>
+      </ion-item> 
+      <ion-label *ngIf="passwordEqual !== undefined && !passwordEqual" class="validation">Password does not match!</ion-label>
+    </ion-list>
+    <button type="submit" ion-button block class="btn-submit">Signup</button>
+    <div *ngIf="feedbackEnabled && form.invalid">
+      <p class="validation text-center">there are errors in the form, please review the fields</p>
+    </div>
+  </form>
 
-
-<p>Already a member?<button ion-button color="primary" clear (click)="login()">Login here!</button></p>
+  <p class="text-center">Already a member? <a color="primary" clear (click)="login()">Login here!</a></p>
+</ion-content>
