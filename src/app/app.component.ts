@@ -4,13 +4,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 // import { WelcomePage } from '../pages/welcome/welcome';
-import { CategoriesPage } from '../pages/categories/categories';
+// import { CategoriesPage } from '../pages/categories/categories';
+import { ProfessionalDetailPage } from '../pages/professional-detail/professional-detail';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = CategoriesPage;
+  rootPage:any = ProfessionalDetailPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

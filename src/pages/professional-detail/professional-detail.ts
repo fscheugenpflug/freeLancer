@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CustomerServiceProvider } from '../../providers/customer-service/customer-service';
+
 
 /**
  * Generated class for the ProfessionalDetailPage page.
@@ -15,11 +17,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfessionalDetailPage {
 
+  professional: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfessionalDetailPage');
+    console.log(this.navParams.data);
+    this.professional = this.navParams.data;
   }
 
 }

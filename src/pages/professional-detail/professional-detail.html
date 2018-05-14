@@ -7,12 +7,45 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>professional-detail</ion-title>
+    <ion-title>Details</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content padding *ngIf="professional">
+  <ion-card>
+    <!-- <img src="{{professional.image}}" /> -->
+    <ion-card-content>
+      <ion-card-title>
+        {{professional.name}}
+      </ion-card-title>
+      <h3 *ngFor="let profession of professional.profession">{{profession}}</h3>
+      <!-- <p>
+        {{professionalDetails.description}}
+      </p> -->
+    </ion-card-content>
 
-<ion-content padding>
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="primary" icon-start>
+          <ion-icon name='ios-call'></ion-icon>
+          Call
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <!-- <button ion-button clear small color="primary" icon-start>
+          <ion-icon name='logo-euro'></ion-icon>
+          50/h
+        </button> -->
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="primary" icon-start>
+          <ion-icon name='ios-calendar'></ion-icon>
+          Request
+        </button>
+      </ion-col>
+    </ion-row>
 
+  </ion-card>
 </ion-content>
+

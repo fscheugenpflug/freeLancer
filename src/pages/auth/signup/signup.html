@@ -31,11 +31,10 @@
         <ion-label stacked>Profession</ion-label>
         <ion-select [(ngModel)]="profession" multiple="true" name="profession" #professionField="ngModel" required [disabled]="processing">
           <ion-option>Web Devloper</ion-option>
+          <ion-option>UX/UI</ion-option>
+          <ion-option>Photographer</ion-option>
           <ion-option>Chef</ion-option>
-          <ion-option>Plumber</ion-option>
           <ion-option>Carpenter</ion-option>
-          <ion-option>Hairdresser</ion-option>
-          <ion-option>Masseuse</ion-option>
         </ion-select>
         <ion-label *ngIf="feedbackEnabled && professionField.errors">
           <p *ngIf="professionField.errors.required" class="validation">Profession required</p>

@@ -29,20 +29,17 @@ export class ListingProfessionalsPage {
     console.log("ionViewDidLoad ListingProfessionalsPage");
     console.log(this.navParams);
     this.profession = this.navParams.data.profession;
-    this.navParams.data.subscribe(params => {
-      const profession = params.profession;
-      this.customerService
-        .listAllwithinCategory(profession)
-        .then(data => {
-          this.allWithinCategory = data;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    });
+    this.customerService
+      .listAllwithinCategory(this.profession)
+      .then(data => {
+        this.allWithinCategory = data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
-  getProfessionalDetails(professional){
+  selectProfessional(professional) {
     this.navCtrl.push(ProfessionalDetailPage, professional);
   }
 }
