@@ -7,12 +7,42 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>events</ion-title>
+    <ion-title>Events</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="list-avatar-page">
+   
+  <ion-list>
+      <ion-item *ngIf="upcomingDeals">
+        <ion-list-header class="list-header">
+          Upcoming
+        </ion-list-header>
+        <div *ngFor="let upcomingDeal of upcomingDeals">
+          <!-- <ion-avatar item-start>
+            <img src="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png">
+          </ion-avatar> -->
+          <h2>{{upcomingDeal.date | date: 'd MMM, y'}}</h2>
+          <p>{{upcomingDeal.description}}</p>
+          <button ion-button clear item-end (click)="showUpcomingDeal(upcomingDeal)">View</button>
+        </div>
+      </ion-item>
+
+      <ion-item *ngIf="bygoneDeals">
+      <ion-list-header class="list-header">
+        Bygone
+      </ion-list-header>
+        <div *ngFor="let bygoneDeal of bygoneDeals">
+          <!-- <ion-avatar item-start>
+            <img src="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png">
+          </ion-avatar> -->
+          <h2>{{bygoneDeal.date | date: 'd MMM, y'}}</h2>
+          <p>{{bygoneDeal.description}}</p>
+          <button ion-button clear item-end (click)="showBygoneDeal(bygoneDeal)">View</button>
+        </div>
+      </ion-item>
+  </ion-list>
 
 </ion-content>

@@ -31,7 +31,7 @@
         <ion-label stacked>Profession</ion-label>
         <ion-select [(ngModel)]="profession" multiple="true" name="profession" #professionField="ngModel" required [disabled]="processing">
           <ion-option>Web Devloper</ion-option>
-          <ion-option>UX/UI</ion-option>
+          <ion-option>Designer</ion-option>
           <ion-option>Photographer</ion-option>
           <ion-option>Chef</ion-option>
           <ion-option>Carpenter</ion-option>
@@ -42,7 +42,7 @@
       </ion-item>
       <ion-item *ngIf="statusProfessional">
         <ion-label stacked>Telephone</ion-label>
-        <ion-input type="text" name="telephone" [(ngModel)]="telephone" #telephoneField="ngModel" required [disabled]="processing"></ion-input>
+        <ion-input type="tel" name="telephone" [(ngModel)]="telephone" #telephoneField="ngModel" required [disabled]="processing"></ion-input>
         <ion-label *ngIf="feedbackEnabled && telephoneField.errors">
           <p *ngIf="telephoneField.errors.required" class="validation">Phonenumber required</p>
         </ion-label>

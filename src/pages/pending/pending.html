@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>pending</ion-title>
+    <ion-title>Pending</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,4 +15,16 @@
 
 <ion-content padding>
 
+
+  <ion-list *ngIf="pendingDeals">
+    <ion-item *ngFor="let pendingDeal of pendingDeals">
+      <ion-avatar item-start>
+        <img src="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png">
+      </ion-avatar>
+      <h2>{{pendingDeal.date | date: 'd MMM, y'}}</h2>
+      <p>{{pendingDeal.description}}</p>
+      <button ion-button clear item-end (click)="showPendingDeal(pendingDeal)">View</button>
+    </ion-item>
+  </ion-list>
+  
 </ion-content>

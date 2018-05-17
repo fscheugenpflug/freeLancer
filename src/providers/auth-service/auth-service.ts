@@ -14,12 +14,12 @@ export class AuthServiceProvider {
   private user: any;
   private userChange: Subject<any> = new Subject();
 
-  private API_URL = 'http://localhost:3000/auth';
+  private API_URL = "http://localhost:3000/auth";
 
   userChange$: Observable<any> = this.userChange.asObservable();
 
   constructor(public httpClient: HttpClient) {}
-  
+
   private setUser(user?: any) {
     this.user = user;
     this.userChange.next(user);
@@ -78,4 +78,12 @@ export class AuthServiceProvider {
     return this.user;
   }
 
+  updateInfoProfessional(setup): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient
+      .put(`${this.API_URL}/${this.user._id}/update`, {setup}, options)
+      .toPromise()
+  }
 }

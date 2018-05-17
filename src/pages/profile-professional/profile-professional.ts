@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 /**
  * Generated class for the ProfileProfessionalPage page.
@@ -15,11 +16,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfileProfessionalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  professional: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthServiceProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfileProfessionalPage');
+    this.authService.me()
+      .then((data) => {
+        this.professional = data;
+      })
+      
+    }
+  showData(){
+    console.log(this.professional)
   }
-
-}
+  }

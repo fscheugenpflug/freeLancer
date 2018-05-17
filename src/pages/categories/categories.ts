@@ -19,10 +19,6 @@ import { EventsPage } from '../events/events';
 export class CategoriesPage {
   categories: Array<any>;
 
-  tab1Root 
-  tab2Root = EventsPage;
-  tab3Root = PendingPage;
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.categories = [
       {
@@ -31,7 +27,7 @@ export class CategoriesPage {
           "https://blog.brainstation.io/wp-content/uploads/2017/04/web-960x502.jpg"
       },
       {
-        profession: "UX / UI",
+        profession: "Designer",
         imageUrl:
           "https://i2.wp.com/www.2leaf.com/wp-content/uploads/pexels-photo-273230.jpeg?resize=620%2C380&ssl=1"
       },

@@ -1,53 +1,48 @@
 <!--
-  Generated template for the SetupProfessionalPage page.
+  Generated template for the RequestPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Setup</ion-title>
+    <ion-title>Request</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content class="setup-profile">
+<ion-content class="request-page">
   <form (ngSubmit)="submitForm(form)" #form="ngForm">
     <ion-slides pager>
       <ion-slide>
         <ion-toolbar>
-          <!-- <ion-buttons end>
-            <button ion-button color="primary">Skip</button>
-          </ion-buttons> -->
         </ion-toolbar>
         <ion-icon name="create" class="setup-icon" color="primary"></ion-icon>
         <h2 class="slide-title">Description</h2>
-        <p>Provide some lines about yourself and the work do. This will help the clients to get a first impression.</p>
+        <p>Provide some instructial lines or explain the content of your brief in order to provide a better point to start with.</p>
         <textarea name="description" [(ngModel)]="description" id="setup-description" cols="25" rows="20" placeholder="The description goes here!"></textarea>
       </ion-slide>
       <ion-slide>
         <ion-toolbar>
         </ion-toolbar>
-        <ion-icon name="person" class="setup-icon" color="primary"></ion-icon>
-        <h2 class="slide-title">Profile-Picture</h2>
-        <div *ngIf="!picture">
-          <p>Provide some lines about yourself and the work do. This will help the clients to get a first impression.</p>
-          <button ion-button type="button" color="primary" (click)="openCamera()">Take Picture</button>
-          <button ion-button type="button" color="primary" (click)="openGallery()">Select File</button>
-        </div>
-        <div *ngIf="picture">
-          <img class="slide-image" src="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png">
-          <div class="btn-class">
-            <button ion-button type="button" color="primary" (click)="uploadPicture()">Delete Picture</button>
-            <button ion-button type="button" color="primary" (click)="deletePicture()">Upload Picture</button>
-          </div>
+        <ion-icon name="calendar" class="setup-icon" color="primary"></ion-icon>
+        <h2 class="slide-title">Set a date!</h2>
+        <p>Pick a date that suits you best! The freeLancer will only then be able to confirm your request.</p>
+        <div class="schedule">
+          <ion-item>
+            <ion-label color="primary" stacked>Date</ion-label>
+            <ion-datetime displayFormat="DD MMM, YYYY" min="2018" name="date" [(ngModel)]="date" required placeholder="Select Date"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary" stacked>Time</ion-label>
+            <ion-datetime displayFormat="HH:mm"  minuteValues="0,15,30,45" name="time" [(ngModel)]="time" required placeholder="Select time"></ion-datetime>
+          </ion-item>
         </div>
       </ion-slide>
       <ion-slide>
         <ion-toolbar>
         </ion-toolbar>
         <ion-icon name="home" class="setup-icon" color="primary"></ion-icon>
-        <h3 class="slide-title">Address</h3>
-        <p>Based on the location, the client will be able to select you. The customer will be able to hire within a certain radius the freeLance. Also you wll be able to define the Distance you're willing to travel <span>[coming soon!]</span></p>
+        <h2 class="slide-title">Address</h2>
         <div class="setup-address">
           <ion-item>
             <ion-label color="primary" stacked>Street</ion-label>
@@ -66,9 +61,9 @@
             <ion-input type="text" name="country" [(ngModel)]="country" required placeholder="Enter Country"></ion-input>
           </ion-item>
         </div>
-        <button ion-button large clear icon-end color="primary" type="submit">
-          Continue
-          <ion-icon name="arrow-forward"></ion-icon>
+        <button ion-button large clear icon-end color="primary">
+          Request
+        <ion-icon name="arrow-forward" type="submit"></ion-icon>
         </button>
       </ion-slide>
     </ion-slides>

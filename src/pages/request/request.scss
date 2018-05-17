@@ -1,21 +1,5 @@
-page-setup-professional {
-  .setup-profile {
-
-  .setup-icon {
-    font-size: 250%
-  }
-
-  #setup-description {
-    margin-top: 10vh;
-    border-color: #60646B;
-    text-align: center;
-    height: 25vh;
-  }
-
-  .setup-address{
-    margin: 3vh 3vw;
-    margin-right: 8vw;
-  }
+page-request {
+.request-page {
 
   .toolbar-background {
     background: #fff;
@@ -49,12 +33,32 @@ page-setup-professional {
     b {
       color: #000000;
     }
-    span{
-      color: #3C8D90;
-    }
   }
-  .btn-class {
-    margin-top: 10vh;
+
+  ion-toolbar {
+    margin-top: 5vh;
+  }
+
+  .setup-icon {
+  font-size: 250%
+  }
+
+  .schedule{ 
+    margin: 8vh 3vw;
+    margin-right: 8vw;
+  }
+
+  #setup-description {
+    margin-top: 3vh;
+    border-color: #60646B;
+    text-align: center;
+    height: 25vh;
+    margin-bottom: 25vh
+  }
+
+  .setup-address {
+    margin: 5vh 3vw;
+    margin-right: 8vw;
   }
 }
 }

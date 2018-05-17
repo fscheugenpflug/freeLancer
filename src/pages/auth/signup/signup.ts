@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SetupProfessionalPage } from '../../setup-professional/setup-professional';
 import { LoginPage } from '../login/login';
 import { AuthServiceProvider } from '../../../providers/auth-service/auth-service';
-import { CategoriesPage } from '../../categories/categories';
+import { TabsPage } from '../../tabs/tabs';
 
 
 
@@ -91,7 +91,7 @@ export class SignupPage {
           if (this.statusProfessional) {
             this.navCtrl.push(SetupProfessionalPage);
           } else {
-            this.navCtrl.push(CategoriesPage);
+            this.navCtrl.push(TabsPage);
           }
         })
         .catch((err) => {

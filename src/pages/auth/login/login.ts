@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { AuthServiceProvider } from '../../../providers/auth-service/auth-service';
-import { ProfileProfessionalPage } from '../../profile-professional/profile-professional';
-import { CategoriesPage } from '../../categories/categories';
+import { TabsProfessionalPage } from '../../tabs-professional/tabs-professional';
+import { TabsPage } from '../../tabs/tabs';
 
 /**
  * Generated class for the LoginPage page.
@@ -43,9 +43,9 @@ export class LoginPage {
       this.authService.login(user)
         .then((result) => {
           if(result.role === 'professional') {
-            this.navCtrl.push(ProfileProfessionalPage)
+            this.navCtrl.push(TabsProfessionalPage)
           } else {
-            this.navCtrl.push(CategoriesPage)
+            this.navCtrl.push(TabsPage)
           }
         })
         .catch((err) => {

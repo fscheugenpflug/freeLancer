@@ -11,27 +11,15 @@ import { Injectable } from '@angular/core';
 export class CustomerServiceProvider {
   user: Array<any>;
 
-  private baseUrl = "http://localhost:3000";
+  private baseUrl = "http://localhost:3000/customer";
 
-  constructor(public httpClient: HttpClient) {
-    this.user = [
-      {
-        profession: ["Web Devloper", "Chef"],
-        role: "professional",
-        name: "Charlie",
-        surname: "Brown",
-        email: "a@b.com",
-        telephone: 214768
-      }
-    ];
-    console.log("Hello CustomerServiceProvider Provider");
-  }
+  constructor(public httpClient: HttpClient) {  }
 
   listAllwithinCategory(profession: String): Promise<any> {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/customer/${profession}`, options)
+    return this.httpClient.get(`${this.baseUrl}/${profession}`, options)
       .toPromise();
   }
 
@@ -39,7 +27,7 @@ export class CustomerServiceProvider {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/customer/${id}`, options)
+    return this.httpClient.get(`${this.baseUrl}/${id}`, options)
       .toPromise();
   }
 }

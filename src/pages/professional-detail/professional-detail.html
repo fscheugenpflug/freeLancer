@@ -12,34 +12,39 @@
 
 </ion-header>
 
-<ion-content padding *ngIf="professional">
-  <ion-card>
-    <!-- <img src="{{professional.image}}" /> -->
+<ion-content padding>
+  <ion-card *ngIf="!professional">
+    <ion-card-content>
+      <h3>Currently there are no professionals available in this category</h3>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="professional">
+    <img src="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" />
     <ion-card-content>
       <ion-card-title>
         {{professional.name}}
       </ion-card-title>
       <h3 *ngFor="let profession of professional.profession">{{profession}}</h3>
-      <!-- <p>
-        {{professionalDetails.description}}
-      </p> -->
+      <p>
+        {{professional.description}}
+      </p>
     </ion-card-content>
 
     <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="primary" icon-start>
+      <ion-col text-left>
+        <button ion-button clear small color="primary" icon-start (click)="dialProfessional(professional.telephone)"> 
           <ion-icon name='ios-call'></ion-icon>
           Call
         </button>
       </ion-col>
       <ion-col text-center>
-        <!-- <button ion-button clear small color="primary" icon-start>
-          <ion-icon name='logo-euro'></ion-icon>
-          50/h
-        </button> -->
+        <button ion-button clear small color="primary" icon-start (click)="showAddress()">
+          <ion-icon name='home'></ion-icon>
+            Address
+        </button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button clear small color="primary" icon-start>
+        <button ion-button clear small color="primary" icon-start (click)="requestProfessional(professional)">
           <ion-icon name='ios-calendar'></ion-icon>
           Request
         </button>
