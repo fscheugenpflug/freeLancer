@@ -70,4 +70,13 @@ export class DealServiceProvider {
       .get(`${this.baseUrl}/approved/bygone`, options)
       .toPromise();
   }
+
+  updatePendingDate(setup, id): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient
+      .put(`${this.baseUrl}/pending/${id}/updatedate`, { setup }, options)
+      .toPromise();
+  }
 }

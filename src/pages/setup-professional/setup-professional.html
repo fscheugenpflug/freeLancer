@@ -41,6 +41,20 @@
             <button ion-button type="button" color="primary" (click)="deletePicture()">Upload Picture</button>
           </div>
         </div>
+        <!-- <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+        <h3 [hidden]="lastImage !== null">Please Select Image!</h3>
+        
+        <ion-footer>
+          <ion-toolbar color="primary">
+            <ion-buttons>
+              <button ion-button icon-left (click)="presentActionSheet()">
+                <ion-icon name="camera"></ion-icon>Select Image
+              </button>
+              <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
+                <ion-icon name="cloud-upload"></ion-icon>Upload
+              </button>
+            </ion-buttons>
+          </ion-toolbar> -->
       </ion-slide>
       <ion-slide>
         <ion-toolbar>

@@ -1,10 +1,18 @@
 page-welcome {
 
   #welcome-page {
-    background: color($colors, secondary)
+    // background: color($colors, secondary)
+    background-image: url(../../assets/imgs/IMG_1465.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%
+  }
+
+  .logo {
+    margin-top: 5vh;
   }
 
   .btn-welcome {
-    margin-top: 60vh;
+    margin-top: 13vh;
   }
 }

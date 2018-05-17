@@ -6,6 +6,10 @@ import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CallNumber } from "@ionic-native/call-number";
+
+// -- Camera
+import { File } from "@ionic-native/file";
+import { Transfer } from "@ionic-native/transfer";
 import { Camera } from "@ionic-native/camera";
 
 // -- Pages 
@@ -31,6 +35,7 @@ import { EventsDetailPage } from '../pages/events-detail/events-detail';
 import { PendingDetailPage } from '../pages/pending-detail/pending-detail';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TabsProfessionalPage } from '../pages/tabs-professional/tabs-professional';
+import { UpdatePendingDealPage } from '../pages/update-pending-deal/update-pending-deal';
 // import { SignaturePage } from '../pages/signature/signature';
 
 @NgModule({
@@ -51,7 +56,8 @@ import { TabsProfessionalPage } from '../pages/tabs-professional/tabs-profession
     EventsDetailPage,
     // SignaturePage,
     PendingPage,
-    PendingDetailPage
+    PendingDetailPage,
+    UpdatePendingDealPage
   ],
   imports: [
     BrowserModule,
@@ -77,7 +83,8 @@ import { TabsProfessionalPage } from '../pages/tabs-professional/tabs-profession
     EventsDetailPage,
     // SignaturePage,
     PendingPage,
-    PendingDetailPage
+    PendingDetailPage,
+    UpdatePendingDealPage
   ],
   providers: [
     StatusBar,
@@ -87,6 +94,8 @@ import { TabsProfessionalPage } from '../pages/tabs-professional/tabs-profession
     CustomerServiceProvider,
     CallNumber,
     DealServiceProvider,
+    File,
+    Transfer,
     Camera
   ]
 })

@@ -4,6 +4,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { DealServiceProvider } from '../../providers/deal-service/deal-service';
 import { PendingPage } from '../pending/pending';
 import { EventsPage } from '../events/events';
+import { UpdatePendingDealPage } from '../update-pending-deal/update-pending-deal';
 
 /**
  * Generated class for the PendingDetailPage page.
@@ -59,6 +60,6 @@ export class PendingDetailPage {
   }
   updateDeal(pendingDeal) {
     // this.dealService.resetDealDate(pendingDeal.id)
-    // this.navCtrl.push(PendingPage)
+    this.navCtrl.push(UpdatePendingDealPage, pendingDeal)
   }
 }

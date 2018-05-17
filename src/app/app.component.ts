@@ -7,6 +7,7 @@ import { TabsProfessionalPage } from '../pages/tabs-professional/tabs-profession
 // import { WelcomePage } from '../pages/welcome/welcome';
 // import { RequestPage } from '../pages/request/request';
 // import { SetupProfessionalPage } from '../pages/setup-professional/setup-professional';
+// import { PendingDetailPage } from '../pages/pending-detail/pending-detail';
 // import { PendingPage } from '../pages/pending/pending';
 // import { SignupPage } from '../pages/auth/signup/signup';
 // import { CategoriesPage } from '../pages/categories/categories';

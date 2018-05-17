@@ -17,32 +17,22 @@
   <ion-card>
     <img src="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" />
     <ion-card-content>
-      <ion-card-title>
-        <!-- {{professional.name}} -->
+      <ion-card-title *ngIf="professional">
+        {{professional.name}}
       </ion-card-title>
       <!-- <h3 *ngFor="let profession of professional.profession">{{profession}}</h3> -->
       <p>
         <!-- {{professional.description}} -->
       </p>
     </ion-card-content>
+
+
   
     <ion-row no-padding>
-      <ion-col text-left>
-        <button ion-button clear small color="primary" icon-start (click)="dialProfessional(professional.telephone)">
-          <ion-icon name='ios-call'></ion-icon>
-          Call
-        </button>
-      </ion-col>
       <ion-col text-center>
-        <button ion-button clear small color="primary" icon-start (click)="showData()">
-          <ion-icon name='home'></ion-icon>
-          Address
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="primary" icon-start (click)="requestProfessional(professional)">
-          <ion-icon name='ios-calendar'></ion-icon>
-          Request
+        <button ion-button clear small color="primary" icon-start (click)="updateProfile()">
+          <ion-icon name="cog"></ion-icon>
+          Update
         </button>
       </ion-col>
     </ion-row>
